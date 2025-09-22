@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <title>Über das Projekt – Climate Transparency</title>
+    <link href="assets/logo.svg" rel="icon" type="image/svg+xml" />
+    <link
+      href="https://unpkg.com/@picocss/pico@2.0.6/css/pico.min.css"
+      rel="stylesheet"
+    />
+    <link href="assets/styles.css" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- Navigationsbereich mit Logo und Seitenlinks -->
+    <header class="container">
+      <nav>
+        <ul>
+          <li class="logo">
+            <img alt="Logo" height="28" src="assets/logo.svg" width="28" />
+            Climate Transparency
+          </li>
+        </ul>
+        <ul>
+          <li><a href="index.html">Übersicht</a></li>
+          <li><a aria-current="page" href="about.html">Über uns</a></li>
+        </ul>
+      </nav>
+    </header>
+    <!-- Hauptinhalt mit Projektbeschreibung -->
+    <main class="container">
+      <h1>Über das Projekt</h1>
+      <p>
+        <strong>Climate Transparency e.V.</strong> ist eine gemeinnützige
+        Klimaorganisation, die Emissionsdaten aller Länder verständlich
+        aufbereitet. Unser Ziel ist es, Bürgerinnen und Bürgern einen schnellen
+        Überblick zu geben, wer wie viel zum globalen Ausstoß beiträgt. Wir
+        sammeln öffentlich verfügbare Informationen, vereinheitlichen die
+        Formate und visualisieren Trends über mehrere Jahre. Die vorliegende
+        Webanwendung zeigt exemplarisch, wie solche Daten strukturiert gefiltert
+        und sortiert werden können. Damit unterstützen wir Medien, Schulen und
+        die interessierte Öffentlichkeit bei faktenbasierten Diskussionen.
+        Gleichzeitig möchten wir Transparenz schaffen, um Fortschritte und
+        Defizite bei der Emissionsminderung sichtbar zu machen. Die Daten in
+        dieser Demo sind fiktiv und dienen ausschließlich der Veranschaulichung
+        technischer Konzepte. In realen Projekten achten wir besonders auf
+        Datenqualität, Aktualität und nachvollziehbare Quellenangaben.
+      </p>
+    </main>
+    <!-- Fußbereich mit rechtlichen Links -->
+    <footer class="container">
+      <small
+        >© <span id="year"></span> Climate Transparency –
+        <a href="impressum.html">Impressum</a> ·
+        <a href="datenschutz.html">Datenschutz</a></small
+      >
+    </footer>
+    <!-- Schreibt das aktuelle Jahr in den Footer -->
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+    <!-- Bindet gemeinsame Skripte der Anwendung ein -->
+    <script src="assets/app.js"></script>
+  </body>
+</html>

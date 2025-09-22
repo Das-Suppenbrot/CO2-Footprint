@@ -1,0 +1,280 @@
+/* Primäre Markenfarbe */
+:root {
+  --brand: #0ea5e9;
+}
+/* Logo-Ausrichtung */
+.logo {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  font-weight: 700;
+}
+/* Zwei-Spalten-Raster */
+.app-grid {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 1rem;
+}
+/* Raster unter 900px einkolumnig */
+@media (max-width: 900px) {
+  .app-grid {
+    grid-template-columns: 1fr;
+  }
+}
+/* Hinweis-Badge */
+.badge {
+  background: var(--brand);
+  color: #fff;
+  padding: 0.2rem 0.5rem;
+  border-radius: 999px;
+}
+/* Tabelle scrollbar halten */
+.table-wrap {
+  width: 100%;
+  overflow-x: auto;
+}
+/* Filterformular mit Grid */
+#filterForm {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  align-items: end;
+}
+/* Label und Feld stapeln */
+#filterForm > label {
+  display: flex;
+  flex-direction: column;
+}
+/* Reset-Button Layout */
+#filterForm button[type="reset"] {
+  grid-column: 1 / -1;
+  justify-self: start;
+  height: 44px;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1rem;
+  white-space: nowrap;
+}
+/* Sortierbare Tabellenköpfe */
+th[data-key] {
+  cursor: pointer;
+  position: relative;
+  padding-right: 1.2em;
+  user-select: none;
+}
+/* Standardpfeile für Sortierung */
+th[data-key]::after {
+  content: "⇅";
+  font-size: 0.8em;
+  opacity: 0.3;
+  position: absolute;
+  right: 0.4em;
+}
+th[data-key]:hover::after {
+  opacity: 0.6;
+}
+th.sorted-asc::after {
+  content: "▲";
+  opacity: 0.9;
+}
+th.sorted-desc::after {
+  content: "▼";
+  opacity: 0.9;
+}
+/* Footer-Linkformat */
+footer a {
+  text-decoration: underline;
+}
+
+/* Medien responsiv begrenzen */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Lesbare Grundlinie */
+body {
+  line-height: 1.6;
+}
+/* Skalierendes H1 */
+h1 {
+  font-size: clamp(24px, 5.5vw, 40px);
+  line-height: 1.2;
+}
+/* Skalierendes H2 */
+h2 {
+  font-size: clamp(20px, 4.6vw, 32px);
+  line-height: 1.25;
+}
+/* Skalierendes H3 */
+h3 {
+  font-size: clamp(18px, 3.8vw, 26px);
+  line-height: 1.3;
+  /* Einheitliche Buttonhöhe */
+  button,
+  .btn,
+  a.btn,
+  input[type="button"],
+  input[type="submit"] {
+    min-height: 44px;
+    padding: 10px 16px;
+  }
+}
+
+/* Mobile Filter- und Tabellenlayout */
+@media (max-width: 600px) {
+  #filterForm {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  #filterForm label {
+    margin-bottom: 4px;
+  }
+  #filterForm input,
+  #filterForm select {
+    width: 100%;
+  }
+
+  #filterForm button {
+    width: auto;
+    align-self: flex-start;
+  }
+
+  table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-x;
+  }
+  table thead th,
+  table tbody td {
+    white-space: nowrap;
+  }
+}
+
+/* Mobile Reset-Taste */
+@media (max-width: 600px) {
+  #filterForm button[type="reset"] {
+    width: auto !important;
+    align-self: flex-start !important;
+  }
+}
+
+/* Mobile Tabellen-Wrapper */
+@media (max-width: 600px) {
+  .table-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .table-wrapper table {
+    min-width: 600px;
+    border-collapse: collapse;
+  }
+  .table-wrapper th,
+  .table-wrapper td {
+    white-space: nowrap;
+  }
+}
+
+/* Mobile Tabellen im Inhalt */
+@media (max-width: 600px) {
+  html,
+  body {
+    overflow-x: hidden;
+  }
+  main table,
+  .content table,
+  .page table,
+  table {
+    display: block;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-x;
+    border-collapse: separate;
+    contain: content;
+  }
+  main table thead th,
+  main table tbody td,
+  .content table thead th,
+  .content table tbody td,
+  .page table thead th,
+  .page table tbody td,
+  table thead th,
+  table tbody td {
+    white-space: nowrap;
+  }
+}
+
+/* Mobile Grid-Variante */
+@media (max-width: 600px) {
+  #filterForm {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0 12px;
+    box-sizing: border-box;
+    overflow: visible;
+  }
+  #filterForm > * {
+    max-width: 100%;
+  }
+  #filterForm input,
+  #filterForm select {
+    width: 100%;
+  }
+  #filterForm button {
+    width: auto;
+    align-self: start;
+  }
+
+  main,
+  .page,
+  .content {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  table {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-x;
+  }
+  table thead th,
+  table tbody td {
+    white-space: nowrap;
+  }
+}
+
+/* RTL-Aufteilung */
+html[dir="rtl"] .app-grid {
+  grid-template-columns: 1fr 200px;
+}
+html[dir="rtl"] .app-grid > aside {
+  grid-column: 2;
+}
+html[dir="rtl"] .app-grid > main {
+  grid-column: 1;
+}
+
+/* RTL-Layout unter 900px */
+@media (max-width: 900px) {
+  html[dir="rtl"] .app-grid {
+    grid-template-columns: 1fr;
+  }
+  html[dir="rtl"] .app-grid > aside,
+  html[dir="rtl"] .app-grid > main {
+    grid-column: auto;
+  }
+}

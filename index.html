@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+
+<html dir="ltr" lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <title>Climate Transparency – CO₂-Footprint</title>
+    <link href="assets/logo.svg" rel="icon" type="image/svg+xml" />
+    <link
+      href="https://unpkg.com/@picocss/pico@2.0.6/css/pico.min.css"
+      rel="stylesheet"
+    />
+    <link href="assets/styles.css" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- Kopfbereich mit globaler Navigation und Logo -->
+    <header class="container">
+      <nav>
+        <ul>
+          <li class="logo">
+            <img alt="Logo" height="28" src="assets/logo.svg" width="28" />
+            <span>Climate Transparency</span>
+          </li>
+        </ul>
+        <ul>
+          <li><a aria-current="page" href="index.html">Übersicht</a></li>
+          <li><a href="about.html">Über uns</a></li>
+        </ul>
+      </nav>
+    </header>
+    <div class="container app-grid">
+      <!-- Sekundäre Navigation zum schnellen Wechsel zwischen Inhaltsabschnitten -->
+      <aside>
+        <nav aria-label="Abschnittsnavigation">
+          <ul>
+            <li><a aria-current="page" href="#einleitung">Einleitung</a></li>
+            <li><a href="#filter">Filter</a></li>
+            <li><a href="#tabelle">Tabelle</a></li>
+          </ul>
+        </nav>
+      </aside>
+      <main>
+        <section id="einleitung">
+          <h1>CO₂-Footprint</h1>
+          <p>
+            Transparenz über Emissionen von Ländern und Unternehmen.
+            <span class="badge" id="rowsBadge">0 Einträge</span>
+          </p>
+        </section>
+        <section id="filter">
+          <h2>Filter</h2>
+          <!-- Formular liefert clientseitige Filterkriterien für die Datentabelle -->
+          <form autocomplete="off" id="filterForm" novalidate="">
+            <label
+              >Land
+              <input
+                id="countryInput"
+                inputmode="text"
+                name="country"
+                placeholder="z. B. De / Ver…"
+                type="text"
+            /></label>
+            <label
+              >Unternehmen
+              <input
+                id="companyInput"
+                inputmode="text"
+                name="company"
+                placeholder="z. B. Eco / New…"
+                type="text"
+            /></label>
+            <label
+              >Min. Emissionen (Mt CO₂e)
+              <input
+                id="minInput"
+                inputmode="decimal"
+                name="min"
+                pattern="^[0-9]+([.,][0-9]+)?$"
+                placeholder="0"
+                type="text"
+              />
+            </label>
+            <label>
+              Max. Emissionen (Mt CO₂e)
+              <input
+                id="maxInput"
+                inputmode="decimal"
+                name="max"
+                pattern="^[0-9]+([.,][0-9]+)?$"
+                placeholder="1000"
+                type="text"
+            /></label>
+            <button class="secondary" type="reset">Zurücksetzen</button>
+          </form>
+        </section>
+        <section id="tabelle">
+          <h2>Daten</h2>
+          <!-- Tabelle mit sortierbaren Spalten und Live-Update über JavaScript -->
+          <div class="table-wrap">
+            <div class="table-wrapper">
+              <table>
+                <thead>
+                  <tr>
+                    <th aria-sort="none" data-key="country" scope="col">
+                      Land
+                    </th>
+                    <th aria-sort="none" data-key="company" scope="col">
+                      Unternehmen
+                    </th>
+                    <th aria-sort="none" data-key="sector" scope="col">
+                      Sektor
+                    </th>
+                    <th aria-sort="none" data-key="emissions" scope="col">
+                      Emissionen (Mt CO₂e)
+                    </th>
+                    <th aria-sort="none" data-key="year" scope="col">Jahr</th>
+                  </tr>
+                </thead>
+                <tbody aria-live="polite" id="tableBody"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+    <footer class="container">
+      <small
+        >© <span id="year"></span> Climate Transparency –
+        <a href="impressum.html">Impressum</a> ·
+        <a href="datenschutz.html">Datenschutz</a></small
+      >
+    </footer>
+    <!-- Lädt das zentrale Skript für Filterlogik, Sortierung und Datenbefüllung -->
+    <script src="assets/app.js"></script>
+  </body>
+</html>
